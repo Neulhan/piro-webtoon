@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for episode in episodes %}
+        <li><a href="{% url 'naver_webtoon:detail' key=episode.webtoon.title num=episode.id %}"><img src="{{ episode.thumb_src }}" alt="">{{ episode }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

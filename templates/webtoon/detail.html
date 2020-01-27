@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for cut in cuts %}
+    <div style="margin: 0; display: flex; justify-content: center"><img src="{{ cut.cut_src }}" alt=""></div>
+{% endfor %}
+</body>
+</html>
