@@ -13,9 +13,8 @@ def crawling_main():
         print(f"{count}/{len(webtoon_list)} {webtoon.get('title')} 크롤링 중")
         print(webtoon)
         Webtoon.objects.create(title=webtoon.get('title'),
-                               title_id=f"https://comic.naver.com{webtoon.get('href')}",
+                               list_url=f"https://comic.naver.com{webtoon.get('href')}",
                                thumb_src=webtoon.find('img').get('src'))
-
 
 
 def crawling_list(webtoon):
@@ -26,7 +25,7 @@ def crawling_list(webtoon):
     for episode in episode__list:
         try:
             Episode.objects.create(thumb_src=episode.find('img').get('src'),
-                                   ep_url=f"https://comic.naver.com{episode.get('href')}",
+                                   episode_url=f"https://comic.naver.com{episode.get('href')}",
                                    title=episode.find('img').get('alt'),
                                    webtoon=webtoon
                                    )
@@ -43,6 +42,5 @@ def crawling_cut(epi):
     for count, cut in enumerate(cut_list, 1):
         Cut.objects.create(cut_src=cut.get('src'),
                            num=count,
-                           ep=epi
+                           episode=epi
                            )
-

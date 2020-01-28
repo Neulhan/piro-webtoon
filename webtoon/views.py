@@ -37,8 +37,7 @@ def crawling__epi(request):
 
 
 def crawling__cut(request):
-    for wt in Webtoon.objects.all():
-        for ep in wt.episode_set.all():
-            print(ep)
-            crawling_cut(ep)
+    for ep in Episode.objects.all():
+        print(ep)
+        crawling_cut(ep)
     return HttpResponse(201)
